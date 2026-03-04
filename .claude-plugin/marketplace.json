@@ -1,0 +1,20 @@
+{
+  "name": "claudemd-lint-local",
+  "description": "Smart CLAUDE.md manager — auto-detect corrections, suggest rules, deduplicate, and track effectiveness",
+  "owner": {
+    "name": "claudemd-lint contributors"
+  },
+  "plugins": [
+    {
+      "name": "claudemd-lint",
+      "description": "Smart CLAUDE.md manager — auto-detect corrections, suggest rules, deduplicate, and track effectiveness",
+      "version": "1.4.3",
+      "author": {
+        "name": "claudemd-lint contributors"
+      },
+      "source": "./",
+      "category": "productivity",
+      "tags": ["claude-md", "rules", "automation", "corrections", "dedup"]
+    }
+  ]
+}

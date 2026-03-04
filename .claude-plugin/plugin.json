@@ -1,0 +1,18 @@
+{
+  "name": "claudemd-lint",
+  "version": "1.4.3",
+  "description": "Smart CLAUDE.md manager — auto-detect corrections, suggest rules, deduplicate, and track effectiveness",
+  "author": {
+    "name": "claudemd-lint contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "plugin",
+    "claude-md",
+    "rules",
+    "automation"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
