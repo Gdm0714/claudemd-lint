@@ -10,6 +10,10 @@ CLAUDE.md is Claude Code's instruction file, but managing it is 100% manual. Thi
 
 Stop repeating yourself. The plugin listens to your messages and detects correction patterns like "No, use X instead", "Always use Y", "I told you to...". After 3+ occurrences, it generates a rule suggestion automatically.
 
+### LLM-Based Conversation Analysis
+
+Regex can't catch everything. Run `/claudemd-lint:claudemd-detect` and Claude analyzes the entire conversation to find corrections, preferences, and directives in any language — Korean, English, Japanese, or mixed. No patterns to maintain, no expressions to miss.
+
 ### Smart Dedup & Conflict Detection
 
 Find duplicate rules, conflicting directives ("Always use X" vs "Never use X"), and misplaced rules across all your CLAUDE.md files. Uses Jaccard similarity + overlap coefficient with compound word expansion for accurate matching.
@@ -46,6 +50,7 @@ claude plugin install claudemd-lint@claudemd-lint
 
 | Command | Description |
 |---------|-------------|
+| `/claudemd-lint:claudemd-detect` | **LLM-based** conversation analysis — finds corrections regex can't catch (any language) |
 | `/claudemd-lint:claudemd-suggest` | Review and apply auto-detected rule suggestions |
 | `/claudemd-lint:claudemd-organize` | Deduplicate and reorganize CLAUDE.md |
 | `/claudemd-lint:claudemd-health` | Check CLAUDE.md health score (0-100) |
