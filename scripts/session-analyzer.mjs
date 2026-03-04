@@ -245,10 +245,12 @@ async function main() {
     );
   }
 
-  // Always suggest LLM-based detection for deeper analysis
-  if (corrections.length > 0) {
+  // Suggest LLM-based detection only when regex found some corrections
+  // but not enough to generate suggestions (likely missed nuanced corrections)
+  if (corrections.length > 0 && corrections.length < minOccurrences) {
     messageParts.push(
-      `Tip: Run /claudemd-detect for LLM-based conversation analysis — catches corrections that regex can't.`
+      `Detected ${corrections.length} correction${corrections.length > 1 ? 's' : ''} but not enough for auto-suggestion yet.`,
+      `Run /claudemd-detect for deeper LLM-based analysis — catches corrections that regex can't.`
     );
   }
 
