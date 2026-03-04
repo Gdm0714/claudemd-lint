@@ -235,7 +235,29 @@ async function main() {
     writeJson(suggestionsPath, merged);
   }
 
-  console.log(JSON.stringify(createHookOutput('Stop')));
+  // Build session summary message
+  const messageParts = [];
+
+  if (newSuggestions.length > 0) {
+    messageParts.push(
+      `${newSuggestions.length} new rule suggestion${newSuggestions.length > 1 ? 's' : ''} generated from repeated corrections.`,
+      `Run /claudemd-suggest to review them.`
+    );
+  }
+
+  // Always suggest LLM-based detection for deeper analysis
+  if (corrections.length > 0) {
+    messageParts.push(
+      `Tip: Run /claudemd-detect for LLM-based conversation analysis — catches corrections that regex can't.`
+    );
+  }
+
+  if (messageParts.length > 0) {
+    const message = ['<claudemd-lint>', ...messageParts, '</claudemd-lint>'].join('\n');
+    console.log(JSON.stringify(createHookOutput('Stop', message)));
+  } else {
+    console.log(JSON.stringify(createHookOutput('Stop')));
+  }
 }
 
 try {
